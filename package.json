@@ -1,6 +1,6 @@
 {
   "name": "slangopedia-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A CLI for slangopedia.se",
   "main": "app.js",
   "scripts": {
