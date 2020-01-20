@@ -5,24 +5,29 @@ const pkg = require('./package')
 const getHelpMessage = require('./cli.help.js')
 const maybe = require('maybe-include')
 const {
+	config,
 	searchTerm,
 	option,
 	capitalize,
 	formatDate,
 	getStars
 } = require('./utils')
+const { translations } = require('./locale')
 
 const chalk = new Chalk.Instance({
 	level: option('plain') ? 0 : 1
 })
 
-const help = getHelpMessage(chalk)
-
 if (option('help')) {
-	return console.log(help)
+	const helpMessage = getHelpMessage(chalk)
+	return console.log(helpMessage)
 } else if (option('version')) {
 	return console.log(pkg.version)
+} else if (option('language')) {
+	const languageCode = config.set('languageCode', option('language').input)
+	return console.log(`${translations.language_was_set_to} "${option('language').input}"`)
 }
+
 
 const getTemplate = results => {
 	const { word, url } = results
@@ -54,7 +59,7 @@ Slangopedia.search(searchTerm(), {
 })
 	.then(results => {
 		if (!results) {
-			console.error(`Kunde inte hitta ordet "${searchTerm()}"`)
+			console.error(`${translations.could_not_find_the_word} "${searchTerm()}"`)
 			return process.exit(1)
 		}
 

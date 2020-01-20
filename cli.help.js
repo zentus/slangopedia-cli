@@ -1,6 +1,7 @@
 const pkg = require('./package.json')
 const table = require('table')
 const options = require('./options')
+const { translations } = require('./locale')
 
 const getOptionsTable = (options, chalk) => {
 	const settings = {
@@ -15,9 +16,9 @@ const getOptionsTable = (options, chalk) => {
 	}
 
 	const headerRow = [
-		chalk.bold.green('Option'),
-		chalk.bold.green('Shorthand'),
-		chalk.bold.green('Description')
+		chalk.bold.green(translations.option),
+		chalk.bold.green(translations.shorthand),
+		chalk.bold.green(translations.description)
 	]
 
 	const optionRows = options.map(({ option, shorthand, description, linebreak }) => linebreak ? ['', '', ''] : [
@@ -41,9 +42,9 @@ const getHelpMessage = chalk => {
 	const template = `
 ${header}
 
-Usage:
+${translations.usage}:
 
-${chalk.bold('$ slangopedia [word] [options]')}
+${chalk.bold(`$ slangopedia [${translations.word}] [${translations.options}]`)}
 
 ${optionsTable}
 `

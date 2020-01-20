@@ -1,5 +1,6 @@
+const Configstore = require('configstore')
+const pkg = require('./package.json')
 const options = require('./options')
-
 const argv = process.argv.slice(2)
 
 const searchTerm = () => !argv[0].startsWith('-') && argv[0]
@@ -9,10 +10,14 @@ const option = optionInput => {
 
 	if (!optionItem) return false
 
-	return argv.find(flag =>
+	const passedFlag = argv.find(flag =>
 		flag === `--${optionItem.option}` ||
 		flag === `-${optionItem.shorthand}`
 	)
+
+	return passedFlag && {
+		input: argv[argv.indexOf(passedFlag) + 1] || ''
+	}
 }
 
 const capitalize = string => string[0].toUpperCase() + string.slice(1)
@@ -35,7 +40,11 @@ const getStars = stars => ([...new Array(5).keys()])
 	})
 	.join(' ')
 
+
+const config = new Configstore(pkg.name)
+
 module.exports = {
+	config,
 	searchTerm,
 	option,
 	capitalize,

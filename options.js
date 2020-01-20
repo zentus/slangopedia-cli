@@ -1,39 +1,57 @@
+const { translations } = require('./locale')
+const {
+	display_single_description,
+	display_word_and_definition,
+	display_plain,
+	display_json,
+	display_version,
+	display_help,
+	include_comments,
+	use_indentation,
+	set_language
+} = translations
+
 const options = [{
 	option: 'single',
 	shorthand: 's',
-	description: 'Display a single definition'
+	description: display_single_description
 }, {
 	option: 'minimal',
 	shorthand: 'm',
-	description: 'Display word and definition content only'
+	description: display_word_and_definition
 }, {
 	option: 'plain',
 	shorthand: 'p',
-	description: 'Display without text formatting'
+	description: display_plain
 },
 { linebreak: true },
 {
 	option: 'json',
 	shorthand: 'j',
-	description: 'Display result in JSON format'
+	description: display_json
 }, {
 	option: 'include-comments',
 	shorthand: 'c',
-	description: 'Include comments in JSON output (only applicable together with --json)'
+	description: include_comments
 }, {
 	option: 'indent-json',
 	shorthand: 'i',
-	description: 'Use indentation in JSON output (only applicable together with --json)'
+	description: use_indentation
 },
 { linebreak: true },
 {
+	option: 'language',
+	shorthand: 'l',
+	description: set_language
+},
+{
 	option: 'version',
 	shorthand: 'v',
-	description: 'Display version number'
+	description: display_version
 }, {
 	option: 'help',
 	shorthand: 'h',
-	description: 'Display help message'
+	description: display_help
 }]
 
 module.exports = options
