@@ -3,7 +3,7 @@ const pkg = require('./package.json')
 const options = require('./options')
 const argv = process.argv.slice(2)
 
-const searchTerm = () => !argv[0].startsWith('-') && argv[0]
+const searchTerm = () => argv[0] && !argv[0].startsWith('-') && argv[0]
 
 const option = optionInput => {
 	const optionItem = options.find(({ option, shorthand }) => option === optionInput || shorthand === optionInput)
