@@ -20,12 +20,9 @@
     "url": "https://github.com/zentus/slangopedia-cli.git"
   },
   "dependencies": {
-    "argv": "0.0.2",
-    "cfonts": "^2.4.5",
     "chalk": "^3.0.0",
     "configstore": "^5.0.0",
     "maybe-include": "0.0.2",
-    "simple-argv": "^2.0.2",
     "slangopedia": "^0.2.0",
     "table": "^5.4.6"
   }
