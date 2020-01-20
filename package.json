@@ -1,0 +1,27 @@
+{
+  "name": "slangopedia-cli",
+  "version": "0.0.0",
+  "description": "A CLI for slangopedia.se",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "slangopedia",
+    "cli"
+  ],
+  "bin": {
+    "slangopedia": "app.js"
+  },
+  "author": "zentus",
+  "license": "MIT",
+  "dependencies": {
+    "argv": "0.0.2",
+    "cfonts": "^2.4.5",
+    "chalk": "^3.0.0",
+    "maybe-include": "0.0.2",
+    "simple-argv": "^2.0.2",
+    "slangopedia": "^0.2.0",
+    "table": "^5.4.6"
+  }
+}
